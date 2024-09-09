@@ -51,7 +51,7 @@ public class MainManager : MonoBehaviour
             }
         }
         
-        BestScoreText.text = "Best Score: " + ScoreBoard.Instance.GetTopPlayer()?.Name + ": " + ScoreBoard.Instance.GetTopPlayer()?.Score;
+        BestScoreText.text = "Best Score: " + (ScoreBoard.Instance.GetTopPlayer()?.name ?? " - ") + ": " + (ScoreBoard.Instance.GetTopPlayer()?.score ?? 0);
     }
 
     private void Update()
@@ -92,8 +92,8 @@ public class MainManager : MonoBehaviour
         ScoreBoard.Instance.UpdateLeaderBoard(
             new Player
             {
-                Name = StartMenuManager.Instance.Name,
-                Score = m_Points
+                name = StartMenuManager.Instance.Name,
+                score = m_Points
             }
         );
     }
